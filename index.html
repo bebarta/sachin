@@ -1,182 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/utils.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/mobile.css">
-    <title>iBlog - Heaven for bloggers</title>
+    <title>News App</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <nav class="navigation max-width-1 m-auto">
-        <div class="nav-left">
-            <a href="/">
-                <span><img src="img/logo.png" width="94px" alt=""></span>
+
+    <nav>
+        <div class="main-nav container flex">
+            <a href="#" onclick="reload()" class="company-logo">
+                <img src="./assets/logo.png" alt="company logo">
             </a>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="/contact.html">Contact</a></li>
-            </ul>
+            <div class="nav-links">
+                <ul class="flex">
+                    <li class="hover-link nav-item" id="ipl" onclick="onNavItemClick('ipl')">IPL</li>
+                    <li class="hover-link nav-item" id="finance" onclick="onNavItemClick('finance')">Finance</li>
+                    <li class="hover-link nav-item" id="politics" onclick="onNavItemClick('politics')">Politics</li>
+                </ul>
+            </div>
+            <div class="search-bar flex">
+                <input id="search-text" type="text" class="news-input" placeholder="e.g. Science">
+                <button id="search-button" class="search-button">Search</button>
+            </div>
         </div>
-        <div class="nav-right">
-            <form action="/search.html" method="get">
-                <input class="form-input" type="text" name="query" placeholder="Article Search">
-                <button class="btn">Search</button>
-            </form>
-
-        </div>
-
     </nav>
-    <div class="max-width-1 m-auto">
-        <hr>
-    </div>
-    <div class="m-auto content max-width-1 my-2">
-        <div class="content-left">
-            <h1>The heaven for bloggers</h1>
-            <p>iBlog is a website which lets you submit an article which upon approval will be up on our website and you
-                can get a good amount of reach from here!</p>
-            <p>My Halloween decorations are staying in the box this year. To be honest, they didn’t make it out of the
-                box last year either. My Halloween spirit has officially been bludgeoned to death by teenagers who no
-                longer care and a persistent October fear of the Northern California wildfires. And speaking of fear,
-                isn’t there more than enough of that going around? Maybe all of us can pretend that Halloween isn’t even
-                happening this year?</p>
-        </div>
-        <div class="content-right">
-            <img src="img/home.svg" alt="iBlog">
-        </div>
-    </div>
+    
 
-    <div class="max-width-1 m-auto">
-        <hr>
-    </div>
-    <div class="home-articles max-width-1 m-auto font2">
-        <h2>Featured Articles</h2>
-        <div class="year-box adjust-year">
-            <div>
-                <h3>Year </h3>
+    <main>
+        <div class="cards-container container flex" id="cards-container">
+            
+        </div>
+    </main>
+
+    <template id="template-news-card">
+        <div class="card">
+            <div class="card-header">
+                <img src="https://via.placeholder.com/400x200" alt="news-image" id="news-img">
             </div>
-            <div>
-                <input type="radio" name="year" id=""> 2020
-            </div>
-            <div>
-                <input type="radio" name="year" id=""> 2021
+            <div class="card-content">
+                <h3 id="news-title">This is the Title</h3>
+                <h6 class="news-source" id="news-source">End Gadget 26/08/2023</h6>
+                <p class="news-desc" id="news-desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Recusandae saepe quis voluptatum quisquam vitae doloremque facilis molestias quae ratione cumque!</p>
             </div>
         </div>
-        <div class="home-article">
-            <div class="home-article-img">
-                <img src="img/3.png" alt="article">
-            </div>
-            <div class="home-article-content font1">
-                <a href="/blogpost.html">
-                    <h3>Lorem ipsum dolor sit amet consectetur adipisicing.</h3>
-                </a>
+    </template>
 
-                <div>Author Name</div>
-                <span>07 January | 6 min read</span>
-            </div>
-        </div>
-        <div class="home-article">
-            <div class="home-article-img">
-                <img src="img/1.png" alt="article">
-            </div>
-            <div class="home-article-content font1">
-                <a href="/blogpost.html">
-                    <h3>Lorem ipsum dolor sit amet consectetur adipisicing.</h3>
-                </a>
-
-                <div>Author Name</div>
-                <span>07 January | 6 min read</span>
-            </div>
-        </div>
-        <div class="home-article">
-            <div class="home-article-img">
-                <img src="img/2.png" alt="article">
-            </div>
-            <div class="home-article-content font1">
-                <a href="/blogpost.html">
-                    <h3>Lorem ipsum dolor sit amet consectetur adipisicing.</h3>
-                </a>
-
-                <div>Author Name</div>
-                <span>07 January | 6 min read</span>
-            </div>
-        </div>
-        <div class="home-article">
-            <div class="home-article-img">
-                <img src="img/1.png" alt="article">
-            </div>
-            <div class="home-article-content font1">
-                <a href="/blogpost.html">
-                    <h3>Lorem ipsum dolor sit amet consectetur adipisicing.</h3>
-                </a>
-
-                <div>Author Name</div>
-                <span>07 January | 6 min read</span>
-            </div>
-        </div>
-        <div class="home-article">
-            <div class="home-article-img">
-                <img src="img/11.svg" alt="article">
-            </div>
-            <div class="home-article-content font1">
-                <a href="/blogpost.html">
-                    <h3>Lorem ipsum dolor sit amet consectetur adipisicing.</h3>
-                </a>
-
-                <div>Author Name</div>
-                <span>07 January | 6 min read</span>
-            </div>
-        </div>
-        <div class="home-article">
-            <div class="home-article-img">
-                <img src="img/3.png" alt="article">
-            </div>
-            <div class="home-article-content font1">
-                <a href="/blogpost.html">
-                    <h3>Lorem ipsum dolor sit amet consectetur adipisicing.</h3>
-                </a>
-
-                <div>Author Name</div>
-                <span>07 January | 6 min read</span>
-            </div>
-        </div>
-        <div class="home-article">
-            <div class="home-article-img">
-                <img src="img/2.png" alt="article">
-            </div>
-            <div class="home-article-content font1">
-                <a href="/blogpost.html">
-                    <h3>Lorem ipsum dolor sit amet consectetur adipisicing.</h3>
-                </a>
-
-                <div>Author Name</div>
-                <span>07 January | 6 min read</span>
-            </div>
-        </div>
-        <div class="home-article">
-            <div class="home-article-img">
-                <img src="img/11.svg" alt="article">
-            </div>
-            <div class="home-article-content font1">
-                <a href="/blogpost.html">
-                    <h3>Lorem ipsum dolor sit amet consectetur adipisicing.</h3>
-                </a>
-
-                <div>Author Name</div>
-                <span>07 January | 6 min read</span>
-            </div>
-        </div>
-
-    </div>
-
-    <div class="footer">
-        <p>Copyright &copy; iBlog.com </p>
-        <a href="https://www.vecteezy.com/free-vector/typewriter">Vector Credits: Vecteezy</a>
-    </div>
+    <script src="script.js"></script>
 </body>
-
-</html>
+</html> 
